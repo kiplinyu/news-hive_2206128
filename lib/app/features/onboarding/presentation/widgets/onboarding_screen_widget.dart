@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:news_hive/views/pages/login_page.dart';
-import 'package:news_hive/views/pages/onboard_third_page.dart';
-import 'package:news_hive/views/pages/register_page.dart';
+import 'package:go_router/go_router.dart';
+import 'package:news_hive/app/features/onboarding/presentation/pages/onboard_first_page.dart';
+import 'package:news_hive/app/features/onboarding/presentation/pages/onboard_second_page.dart';
+import 'package:news_hive/app/features/onboarding/presentation/pages/onboard_third_page.dart';
+import 'package:news_hive/app/router/routes.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:news_hive/views/pages/onboard_first_page.dart';
-import 'package:news_hive/views/pages/onboard_second_page.dart';
 
 class OnboardingScreenWidget extends StatefulWidget {
   const OnboardingScreenWidget({super.key});
@@ -75,15 +75,7 @@ class _OnboardingScreenWidgetState extends State<OnboardingScreenWidget> {
                               ), // Adjust the value for desired roundness
                             ),
                           ),
-                          onPressed: () {
-                            // Navigate to the next screen
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LoginPage(),
-                              ),
-                            );
-                          },
+                          onPressed: () => context.go(Routes.login),
                           child: Text(
                             'Skip',
                             style: TextStyle(color: Colors.black),
@@ -123,15 +115,7 @@ class _OnboardingScreenWidgetState extends State<OnboardingScreenWidget> {
                               ), // Adjust the value for desired roundness
                             ),
                           ),
-                          onPressed: () {
-                            // Navigate to the next screen
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => RegisterPage(),
-                              ),
-                            );
-                          },
+                          onPressed: () => context.go(Routes.register),
                           child: Text('Get Started'),
                         ),
                       ),

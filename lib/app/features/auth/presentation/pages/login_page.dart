@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_hive/views/pages/register_page.dart';
+import 'package:go_router/go_router.dart';
+import 'package:news_hive/app/router/routes.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -92,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     onPressed: () {
-                      // Handle login
+                      context.go(Routes.home);
                     },
                     child: Text("Login", style: TextStyle(color: Colors.white)),
                   ),
@@ -112,14 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => RegisterPage(),
-                              ),
-                            );
-                          },
+                          onPressed: () => context.go(Routes.register),
                           child: Text("Sign Up"),
                         ),
                       ],

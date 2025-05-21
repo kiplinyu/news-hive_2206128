@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_hive/views/widgets/onboarding_screen_widget.dart';
-// import 'package:news_hive/views/pages/onboard_first_page.dart';
+import 'package:go_router/go_router.dart';
+import 'package:news_hive/app/router/routes.dart';
 
 class SplashSceenPage extends StatefulWidget {
   const SplashSceenPage({super.key});
@@ -15,10 +15,7 @@ class _SplashSceenPageState extends State<SplashSceenPage> {
     super.initState();
     Future.delayed(Duration(seconds: 2), () {
       if (!mounted) return;
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => OnboardingScreenWidget()),
-      );
+      context.go(Routes.onBoarding);
     });
   }
 
