@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_hive/shared/theme/app_colors.dart';
+import 'package:news_hive/core/constants/app_colors.dart';
 
 enum OnBoardButtonType { primary, secondary }
 
