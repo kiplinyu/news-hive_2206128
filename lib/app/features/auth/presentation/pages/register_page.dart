@@ -107,7 +107,10 @@ class _RegisterPageState extends State<RegisterPage> {
                     onPressed: () {
                       context.go(Routes.home);
                     },
-                    child: Text("Login", style: TextStyle(color: Colors.white)),
+                    child: Text(
+                      "Register",
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
 

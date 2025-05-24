@@ -11,4 +11,7 @@ class Routes {
   static const login = '/auth/login';
   static const register = '/auth/register';
   static const forgotPassword = '/auth/forgot-password';
+
+  static const newsDetailPath = 'news/:id';
+  static const newsDetail = '/home/news';
 }

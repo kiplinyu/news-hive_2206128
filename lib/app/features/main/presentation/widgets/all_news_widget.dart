@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:news_hive/data/models/news_model.dart';
 import 'package:news_hive/data/services/news_service.dart';
+import 'package:news_hive/provider/bookmark_provider.dart';
+import 'package:provider/provider.dart';
 
 class AllNewsWidget extends StatelessWidget {
   const AllNewsWidget({super.key});
@@ -20,13 +23,7 @@ class AllNewsWidget extends StatelessWidget {
           itemBuilder: (context, index) {
             final news = newsList[index];
             return GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(
-                  context,
-                  '/news-detail',
-                  arguments: news.id, // ✅ Gunakan ID!
-                );
-              },
+              onTap: () => context.go('/home/news/${news.id}'),
               child: Row(
                 children: [
                   ClipRRect(
@@ -61,8 +58,14 @@ class AllNewsWidget extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                    icon: const Icon(Icons.bookmark_border),
-                    onPressed: () {},
+                    icon: Icon(
+                      context.watch<BookmarkProvider>().isBookmarked(news.id)
+                          ? Icons.bookmark
+                          : Icons.bookmark_border,
+                    ),
+                    onPressed: () {
+                      context.read<BookmarkProvider>().toggleBookmark(news);
+                    },
                   ),
                 ],
               ),
